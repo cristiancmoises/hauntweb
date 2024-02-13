@@ -47,7 +47,7 @@
 	"Linux Servers Security."
 	"I'm a free software enthusiast.")
      (br)
-     (p " I like code and i like to mix many projects like threejs + react "
+     (p " I love code and unify projects like threejs + react "
 	"Check my awesome interactive portfolio "
 	,(link* "here"
 		"https://live-one.vercel.app")
