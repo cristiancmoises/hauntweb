@@ -122,9 +122,9 @@
 (define (header-box)
   `(div (@ (id "block"))
         (p "+>---------------------------<+")
-        (p ,(link* "About" "/about.html")--
-           ,(link* "Research" "/research.html")--
-           ,(link* "Miscellany" "/misc.html"))
+        (p ,(link* "About" "/site/about.html")--
+           ,(link* "Research" "/site/research.html")--
+           ,(link* "Miscellany" "/site/misc.html"))
         (p "+>---------------------------<+")
         (br)))
 
