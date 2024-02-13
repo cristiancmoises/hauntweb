@@ -25,14 +25,14 @@
 (define home-page
   (static-page
    "Home"
-   "/site/index.html"
+   "https://cristiancmoises.github.io/site/index.html"
    `(,(centered-image "images/mainframe_256x256.gif"))))
 
 ;; Static "About" page
 (define about-page
   (static-page
    "About"
-   "/site/about.html"
+   "https://cristiancmoises.github.io/site/about.html"
    `((h1 "About")
      (p "This is the personal website of Cristian Cezar Moisés."
 	" I am a student. (Pronouns: "
@@ -62,7 +62,7 @@
 	,(strftime "%c" (localtime (current-time)))
 	". The source code can be found on "
 	,(link* "GitHub"
-		"https://github.com/cristiancmoises/hauntweb")
+		"https://github.com/cristiancmoises/cristiancmoises.github.io")
 	". Check my YouTube channel "
 	,(link* "SecurityOps" "https://youtube.com/@securityops")
 	"."))))
@@ -81,17 +81,17 @@
 
 ;; Collection of miscellaneous posts
 (define %misc
-  `(("Recent Posts" "/site/misc.html" ,misc-posts)))
+  `(("Recent Posts" "https://cristiancmoises.github.io/site/misc.html" ,misc-posts)))
 
 ;; Collection of research-related posts
 (define %research
-  `(("Published Work" "/site/research.html" ,research-posts)))
+  `(("Published Work" "https://cristiancmoises.github.io/site/research.html" ,research-posts)))
 
 ;; Build site
 (site #:title
       "C.C.M. Homepage"
       #:domain
-      "cristiancmoises.github.io/site/"
+      "cristiancmoises.github.io"
       #:default-metadata
       '((author . "Cristian Cezar Moisés"))
       #:readers
