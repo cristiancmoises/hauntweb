@@ -91,7 +91,7 @@
 (site #:title
       "C.C.M. Homepage"
       #:domain
-      "cristiancmoises.github.io"
+      "cristiancmoises.github.io/site/"
       #:default-metadata
       '((author . "Cristian Cezar Moisés"))
       #:readers
