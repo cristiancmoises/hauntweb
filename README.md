@@ -1,1 +1,1 @@
-# hauntweb
+# Hauntweb - Personal Haunt Blog
