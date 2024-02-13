@@ -25,14 +25,14 @@
 (define home-page
   (static-page
    "Home"
-   "index.html"
+   "/site/index.html"
    `(,(centered-image "images/mainframe_256x256.gif"))))
 
 ;; Static "About" page
 (define about-page
   (static-page
    "About"
-   "about.html"
+   "/site/about.html"
    `((h1 "About")
      (p "This is the personal website of Cristian Cezar Moisés."
 	" I am a student. (Pronouns: "
@@ -70,7 +70,7 @@
 (define not-found 
   (static-page
    "404"
-   "404.html"
+   "/site/404.html"
    `((h1 "404 Page Not Found")
      (p "Unfortunately the page you've tried to access doesn't exist!")
      (br)
@@ -81,11 +81,11 @@
 
 ;; Collection of miscellaneous posts
 (define %misc
-  `(("Recent Posts" "misc.html" ,misc-posts)))
+  `(("Recent Posts" "/site/misc.html" ,misc-posts)))
 
 ;; Collection of research-related posts
 (define %research
-  `(("Published Work" "research.html" ,research-posts)))
+  `(("Published Work" "/site/research.html" ,research-posts)))
 
 ;; Build site
 (site #:title
