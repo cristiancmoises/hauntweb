@@ -76,7 +76,7 @@
      (br)
      (h2 "Return "
 	 ,(link* "Home"
-		 "https://cristiancmoises.github.io")
+		 "https://cristiancmoises.github.io/site")
 	 "?"))))
 
 ;; Collection of miscellaneous posts
