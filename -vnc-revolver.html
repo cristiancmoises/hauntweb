@@ -1,0 +1,36 @@
+<!DOCTYPE html><head><meta charset="utf-8" /><meta name="description" content="C.C.M. personal website" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>💥 VNC Revolver — C.C.M. Homepage</title><link rel="stylesheet" href="/css/default.css" /></head><body><header><div id="block"><p>+&gt;---------------------------&lt;+</p><p>[<a href="/about.html">About</a>]--[<a href="/research.html">Research</a>]--[<a href="/projects.html">Projects</a>]</p><p>+&gt;---------------------------&lt;+</p><br /></div></header><div id="block"><h1>💥 VNC Revolver</h1><div>February 14, 2024</div><div><h2>Search for open VNC servers around the world</h2><p><div style="text-align: center"><img src="/images/revolver.png" /></div></p><h1>DOWNLOAD</h1><h2>[<a href="/download/vncrevolver.zip">vncrevolver</a>]</h2><h1>Table Of Contents</h1><ul><li>[<a href="#required"><code>Dependencies</code></a>]</li><li>[<a href="#install"><code>Install</code></a>]</li><li>[<a href="#features"><code>Features</code></a>]</li><li>[<a href="#commands"><code>Usage</code></a>]</li></ul><h2>Required:</h2><div id="code"><pre style="overflow: auto"><code> pip install pydantic 
+ pip install asyncvnc 
+ pip install aiohttp</code></pre></div><h1>Install:</h1><div id="code"><pre style="overflow: auto"><code>git clone https://github.com/cristiancmoises/vncrevolver
+cd vncrevolver</code></pre></div><h1>Features</h1><p>|    Some Features                                                                   |
+|------------------------------------------------------------------------------------|
+| 🌎  <em>Search for many open Vnc Servers around the world</em>                             |
+| 📍 <em>Filter by country</em>                                                             |
+| 🔢   <em>List more than one</em>                                                            |
+| 🖥️  <em>List by Client name</em>                                                            |
+| ✅  <em>Checks them for vulnerabilities by rebooting the machine via Ctrl+ALT+DEL, obtaining root access through the operating system bootloader easyly.</em> |</p><h1>Commands</h1><h2>BASIC:</h2><div id="code"><pre style="overflow: auto"><code>python -m vncrevolver</code></pre></div><h2>DEEP SEARCH:</h2><div id="code"><pre style="overflow: auto"><code>python -m vncrevolver --clientname ubuntu --count 10</code></pre></div><h2>CTRL + ALT + DEL  | CHECK</h2><div id="code"><pre style="overflow: auto"><code>python -m vncrevolver --clientname ubuntu --count 10 --check_crt_alt_del</code></pre></div><h2>CHECK A SPECIFIC ADDRESS:</h2><div id="code"><pre style="overflow: auto"><code>python -m vncrevolver --check_crt_alt_del 123.12.1.23:5901</code></pre></div><blockquote><h1>START ME UP!</h1></blockquote><div id="code"><pre style="overflow: auto"><code>$ python -m vncrevolver --help
+
+usage: vncrevolver [-h] [--clientname CLIENTNAME] [--country COUNTRY] [--asn ASN]  [--count COUNT] [--check_crt_alt_del [CHECK_CRT_ALT_DEL]] [--show_failed] [--screen_delay SCREEN_DELAY]
+
+optional arguments:
+-h, --help            show this help message and exit
+--clientname CLIENTNAME
+                    Filter by client name, note that it is case-sensitive!
+--country COUNTRY     Filter by ISO 3166-1 alpha-2 country code
+--asn ASN             Filter by ASN
+--count COUNT         Number of VNCs to find
+--check_crt_alt_del [CHECK_CRT_ALT_DEL]
+                    If you specify this parameter without a value, only those VNCs from the search that pass the ctrl_alt_del check will be returned. If a value is passed, it must be a VNC
+                    address that will be checked against ctrl_alt_del.
+--show_failed         Return VNCs that failed the ctrl_alt_del check
+--screen_delay SCREEN_DELAY
+                    Delay between taking two screenshots in milliseconds</code></pre></div><blockquote><h1>Use filters:</h1></blockquote><div id="code"><pre style="overflow: auto"><code>from typing import List
+from vncrevolver.search import VNC, search_filter
+
+hosts: List[VNC] = await search_filter(clientname='ubuntu')
+for vnc in hosts:
+print(vnc.ip, vnc,port)</code></pre></div><blockquote><h1>Random Search</h1></blockquote><div id="code"><pre style="overflow: auto"><code>from vncrevolver.search import VNC, search_random
+vnc: VNC = await search_random()
+print(vnc.ip, vnc.port)</code></pre></div><blockquote><h1>Ctrl + ALT + DEL - CHECK UP!</h1></blockquote><div id="code"><pre style="overflow: auto"><code>from vncrevolver.search import VNC, search_random
+from vncrevolver.vnc import check_crt_alt_del
+vnc: VNC = await search_random()
+print(await check_crt_alt_del(vnc.ip, vnc.port))</code></pre></div><p><div style="text-align: center"><img src="https://github.com/cristiancmoises/vncrevolver/assets/86272521/87e35e4b-499b-4651-a733-0fc993d4a985" /></div></p></div></div><footer><div id="block"><br /><p>+&gt;---------------------------&lt;+</p><div>[<a href="https://github.com/cristiancmoises">GitHub</a>]--[<a href="https://www.linkedin.com/in/cristiancezarmoises">LinkedIn</a>]</div><div>[<a href="https://orcid.org/0000-0001-9533-4916">ORCID</a>]--[<a href="https://arxiv.org/search/?">ArXiv</a>]--[<a href="https://youtube.com/@securityops">Youtube</a>]</div><p>© 2024 Cristian Cezar Moises</p><p>[<a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>]</p><p>Built with [<a href="http://haunt.dthompson.us">Haunt</a>] in [<a href="https://www.gnu.org/software/guile/guile.html">Scheme</a>]</p><p>+&gt;---------------------------&lt;+</p></div></footer></body>
