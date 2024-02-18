@@ -25,14 +25,14 @@
 (define home-page
   (static-page
    "Home"
-   "https://cristiancmoises.github.io/site/index.html"
+   "/index.html"
    `(,(centered-image "images/mainframe_256x256.gif"))))
 
 ;; Static "About" page
 (define about-page
   (static-page
    "About"
-   "https://cristiancmoises.github.io/site/about.html"
+   "/about.html"
    `((h1 "About")
      (p "This is the personal website of Cristian Cezar Moisés."
 	" I am a student. (Pronouns: "
@@ -76,16 +76,16 @@
      (br)
      (h2 "Return "
 	 ,(link* "Home"
-		 "https://cristiancmoises.github.io/site/")
+		 "/")
 	 "?"))))
 
-;; Collection of miscellaneous posts
-(define %misc
-  `(("Recent Posts" "https://cristiancmoises.github.io/site/misc.html" ,misc-posts)))
+;; Collection of projects posts
+(define %projects
+  `(("Recent Posts" "/projects.html" ,projects-posts)))
 
 ;; Collection of research-related posts
 (define %research
-  `(("Published Work" "https://cristiancmoises.github.io/site/research.html" ,research-posts)))
+  `(("Published Work" "/research.html" ,research-posts)))
 
 ;; Build site
 (site #:title
@@ -97,10 +97,11 @@
       #:readers
       (list commonmark-reader*)
       #:builders
-      (list (blog #:theme default-theme #:collections %misc)
+      (list (blog #:theme default-theme #:collections %projects)
             (blog #:theme default-theme #:collections %research)
             home-page
             about-page
 	    not-found
 	    (static-directory "css")
+            (static-directory "download")
             (static-directory "images")))

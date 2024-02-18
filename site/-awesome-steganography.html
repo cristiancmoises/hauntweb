@@ -1,0 +1,46 @@
+<!DOCTYPE html><head><meta charset="utf-8" /><meta name="description" content="C.C.M. personal website" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>🕵️ Awesome Steganography — C.C.M. Homepage</title><link rel="stylesheet" href="/css/default.css" /></head><body><header><div id="block"><p>+&gt;---------------------------&lt;+</p><p>[<a href="/about.html">About</a>]--[<a href="/research.html">Research</a>]--[<a href="/projects.html">Projects</a>]</p><p>+&gt;---------------------------&lt;+</p><br /></div></header><div id="block"><h1>🕵️ Awesome Steganography</h1><div>February 16, 2024</div><div><h2>Awesome Tools for Steganography 🕵️</h2><p><em>Para o tutorial em português clique [<a href="https://github.com/cristiancmoises/awesome-steganography/blob/main/Leia-me.md">aqui 🇧🇷</a>]</em></p><h1>Table Of Contents</h1><p><div style="text-align: center"><img src="/images/st.png" /></div></p><ul><li>[<a href="##Steganography?"><code>Introduction</code></a>]</li><li>[<a href="#Stegoshare"><code>Hidden with GUI</code></a>]</li><li>[<a href="#Steganoroute"><code>Hidden with TCP</code></a>]</li><li>[<a href="#Snow"><code>Low file size</code></a>]</li><li>[<a href="#Steghide"><code>Popular Tool</code></a>]</li></ul><h2>Steganography?</h2><blockquote><p>Steganography is the art and science of writing hidden messages in such a way that no-one apart from the sender and intended recipient even realizes there is a hidden message.By contrast, cryptography obscures the meaning of a message, but it does not conceal the fact that there is a message. Today, the term steganography includes the concealment of digital information within computer files. For example, the sender might start with an ordinary-looking image file, then adjust the color of every 100th pixel to correspond to a letter in the alphabet—a change so subtle that someone who isn't actively looking for it is unlikely to notice it.
+The larger the cover message is (in data content terms—number of bits) relative to the hidden message, the easier it is to hide the letter.
+Stated somewhat more formally, the objective for making steganographic encoding difficult to detect is to ensure that the changes to the carrier (the original signal) due to the injection of the payload (the signal to covertly embed) are visually (and ideally, statistically) negligible; that is to say, the changes are indistinguishable from the noise floor of the carrier.
+For this reason, digital pictures (which contain large amounts of data) are used to hide messages on the Internet and on other communication media. For example: a 24-bit bitmap will have 8 bits representing each of the three color values (red, green, and blue) at each pixel. If we consider just the blue there will be 28 different values of blue. The difference between 11111111 and 11111110 in the value for blue intensity is likely to be undetectable by the human eye. Therefore, the least significant bit can be used (more or less undetectably) for something else other than color information. If we do it with the green and the red as well we can get one letter of ASCII text for every three pixels.</p></blockquote><h1>Stegoshare:</h1><p><div style="text-align: center"><img src="/images/stegoshare.png" /></div></p><p>The program uses 3 least significant bits (LSB) for red and blue channels and 2 LSB for the green channel. Using lossless compression (PNG), StegoShare provides about 40% capacity (in the 250Mb images you can hide 100Mb file).
+Visually images looks that there are no any files embedded, human eye cannot detect the difference.
+128-bit encryption makes detecting hidden file more difficult.</p><h2>Features</h2><blockquote><p>Simple and easy to use
+Works on any platform that runs Java</p></blockquote><h3>Running:</h3><div id="code"><pre style="overflow: auto"><code>apt install wget openjdk-8-jdk openjdk-8-jre
+wget http://downloads.sourceforge.net/stegoshare/StegoShare.jar
+java -jar StegoShare.jar</code></pre></div><h3>On Gentoo:</h3><div id="code"><pre style="overflow: auto"><code>emerge openjdk
+emerge jre
+wget http://downloads.sourceforge.net/stegoshare/StegoShare.jar
+java -jar StegoShare.jar</code></pre></div><h1>Steganoroute:</h1><p><div style="text-align: center"><img src="/images/stegroute.png" /></div></p><p>Is a tool to send steganographed text messages to another computer over the network. The receiver must make a traceroute to the sender using the mtr program (and pressing d once to switch the display mode to the continuous graph).
+This tool, the sender, creates several fake hops and makes them answer the ICMP packets (or not) to write the letters one by one on the mtr client screen.</p><h2>Features</h2><blockquote><p>It can print upper and lower-case letters.<br />It can print in normal or color-inverse mode.<br />It can loop forever.<br />It should work on your own localhost computer, on your LAN and over the Internet.<br />Is uses the Sinclair ZX Spectrum (1982) font.<br />You can select the TTL value on demand and therefore 'move' the text up and down the mtr graph.</p></blockquote><h4>Warning! _You can filter the IP address that should receive the traceroute. If you don't filter it, every traceroute coming out of the server will mysteriously add fake hops to any destination!You can feel the sensation of being MITMed by the top intelligence organizations in the world by using the conspiracy mode!</h4><h2>Running:</h2><div id="code"><pre style="overflow: auto"><code>apt install git mtr python3 python-scapy
+git clone https://github.com/stratosphereips/steganoroute.git
+cd ./steganoroute
+iptables -I INPUT -p icmp --icmp-type 8 -j DROP
+python3 ./steganoroute.py -i lo -m &quot;MATRIX has You!&quot; -l
+mtr -t yourlocalLANip</code></pre></div><p><em>*MTR command used to list the message</em></p><h3>On Gentoo:</h3><div id="code"><pre style="overflow: auto"><code>emerge mtr 
+emerge python 
+emerge scapy
+git clone https://github.com/stratosphereips/steganoroute.git
+cd ./steganoroute
+iptables -I INPUT -p icmp --icmp-type 8 -j DROP
+python3 ./steganoroute.py -i lo -m &quot;MATRIX has You!&quot; -l
+mtr -t yourlocalLANip</code></pre></div><p><em>*MTR command used to list the message</em></p><h1>Snow:</h1><p><div style="text-align: center"><img src="/images/snow.png" /></div></p><p>A lightweight tool that uses whitespace and tabs to hide information inside text files. Unlike other steganographic tools, snow does not rely on binary formats to encode secret data. This can be incredibly useful in cases where it is not possible to share large binary files.</p><h2>Features</h2><blockquote><p>Produces small files
+Output text can be used on any program that accepts plain text</p></blockquote><h3>Running:</h3><div id="code"><pre style="overflow: auto"><code>apt install stegsnow
+stegsnow -C -m &quot;Encrypted Message Here&quot; -p &quot;angrypassword&quot; infile outfile 
+stegsnow -C -p &quot;angrypassword&quot; outfile</code></pre></div><h3>On Gentoo:</h3><div id="code"><pre style="overflow: auto"><code>wget https://darkside.com.au/snow/snow.zip
+unzip snow.zip
+cd snow 
+make
+cp snow /bin/
+snow -C -m &quot;Encrypted Message Here&quot; -p &quot;angrypassword&quot; infile outfile
+snow -C -p &quot;angrypassword&quot; outfile</code></pre></div><h1>Steghide</h1><p><div style="text-align: center"><img src="/images/steghide.png" /></div>
+One of the most popular steganographic tools today.
+It is a simple command line program that encodes text inside images. Steghide works by creating a random list of bits inside your dummy file and inserts your secret data in between those bits.</p><h2>Features</h2><blockquote><p>Quick and easy to use<br />Uses checksums to verify the integrity of data</p></blockquote><h3>Running:</h3><div id="code"><pre style="overflow: auto"><code>apt install steghide
+cd steghide
+steghide embed -ef topsecretfile.txt -cf photo.jpg -sf photoX.jpg
+steghide extract –sf photoX.jpg</code></pre></div><h3>On Gentoo:</h3><div id="code"><pre style="overflow: auto"><code>wget https://ufpr.dl.sourceforge.net/project/steghide/steghide/0.5.1/steghide-0.5.1.zip
+cd steghide
+./configure 
+make
+make check
+make install 
+steghide embed -ef topsecretfile.txt -cf photo.jpg -sf photoX.jpg
+steghide extract –sf photoX.jpg</code></pre></div><p><div style="text-align: center"><img src="/images/steg.gif" /></div></p></div></div><footer><div id="block"><br /><p>+&gt;---------------------------&lt;+</p><div>[<a href="https://github.com/cristiancmoises">GitHub</a>]--[<a href="https://www.linkedin.com/in/cristiancezarmoises">LinkedIn</a>]</div><div>[<a href="https://orcid.org/0000-0001-9533-4916">ORCID</a>]--[<a href="https://arxiv.org/search/?">ArXiv</a>]--[<a href="https://youtube.com/@securityops">Youtube</a>]</div><p>© 2024 Cristian Cezar Moises</p><p>[<a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>]</p><p>Built with [<a href="http://haunt.dthompson.us">Haunt</a>] in [<a href="https://www.gnu.org/software/guile/guile.html">Scheme</a>]</p><p>+&gt;---------------------------&lt;+</p></div></footer></body>
