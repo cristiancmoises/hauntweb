@@ -34,7 +34,7 @@
             default-theme
             static-page
             research-posts
-            misc-posts
+            projects-posts
             centered-image
             commonmark-reader*
             date))
@@ -83,19 +83,19 @@
   "Check if POST has a research tag."
   (contains? (post-ref post 'tags) "research"))
 
-(define (misc? post)
-  "Check if POST has a misc tag."
-  (contains? (post-ref post 'tags) "misc"))
+(define (projects? post)
+  "Check if POST has a projects tag."
+  (contains? (post-ref post 'tags) "projects"))
 
 (define (research-posts posts)
   "Returns POSTS that contain research tag in reverse chronological order."
   (posts/reverse-chronological
    (filter research? posts)))
 
-(define (misc-posts posts)
-  "Returns POSTS that contain misc tag in reverse chronological order."
+(define (projects-posts posts)
+  "Returns POSTS that contain projects tag in reverse chronological order."
   (posts/reverse-chronological
-   (filter misc? posts)))
+   (filter projects? posts)))
 
 ;;; Links ------------------------------------------------------------
 
@@ -122,9 +122,9 @@
 (define (header-box)
   `(div (@ (id "block"))
         (p "+>---------------------------<+")
-        (p ,(link* "About" "https://cristiancmoises.github.io/site/about.html")--
-           ,(link* "Research" "https://cristiancmoises.github.io/site/research.html")--
-           ,(link* "Miscellany" "https://cristiancmoises.github.io/site/misc.html"))
+        (p ,(link* "About" "/about.html")--
+           ,(link* "Research" "/research.html")--
+           ,(link* "Projects" "/projects.html"))
         (p "+>---------------------------<+")
         (br)))
 
