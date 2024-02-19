@@ -1,4 +1,4 @@
-# Hauntweb - Personal Haunt Blog
+# Hauntweb - My Personal Blog
 
 > A minimalist personal blog.
 
