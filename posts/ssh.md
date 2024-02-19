@@ -6,7 +6,7 @@ summary: SSH for hacking
 SSH usage with high level of security and obfuscation.
 ---
 # My first paper
-That's my first paper with [DOI](10.5281/zenodo.10676824) and i talk some 
+That's my first paper with [DOI](https://zenodo.org/records/10676824) and i talk some 
 about ssh for hacking.
 ![print](/images/print.png)
 
