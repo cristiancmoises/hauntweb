@@ -1,0 +1,98 @@
+\documentclass[english,12pt,a4paper,twoside,openright,openany,onecolumn,titlepage,openbib,leqno,fleqn]{article}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{amsthm}
+\usepackage{xcolor}
+\usepackage{nameref}
+\usepackage{babel}
+\usepackage{hyperref}
+\usepackage{listings}
+\begin{document}
+	\title{SSH FOR HACKING}
+	\author{Cristian Cezar Moisés}
+	\maketitle
+	\thanks{\textit{Dedicate to all my teachers, friends and family.}}
+	\\
+	\tableofcontents
+	\newpage
+	\emph {\textbf{Abstract: In this research we do analysis for using techniques to ssh usage with high level of security and obfuscation.}}
+	\centering
+	\section {[Introduction]}
+	\raggedright
+	\textnormal{One of the most secure tools to connect two devices over the internet are openssh. Created in december 1999 by \href{https://openbsd.org}{OpenBSD} developers.}
+	\cite[OpenSSH is a derivative of the original free ssh 1.2.12 release from Tatu Ylönen. That version was the last one free enough for reuse. Parts of OpenSSH still bear Tatu's license, which was contained in that release. That version, and earlier ones, used mathematical functions from the libgmp library, which was directly included at the time. It is now made available under the Lesser GNU Public License, but versions of that era were under the regular GNU Public License.]{openssh} 
+	\textnormal {The project page on \href{https://github.com/openssh/openssh-portable}{Github}. We join the disposable root servers avaiable from the THC. Many services are avaiable for automate the work with OpenSSH servers.One of this projects are \href{https://www.thc.org/segfault/}{Segfault} created by THC(\textbf{The Hackers Choice}). We start joining the service with Tor for obfuscation and anonymity.}
+	\newpage
+	\centering
+	\section {[Research]}
+	\raggedright
+	\textnormal{Disposable servers are good for automate the work with openssh; and we use tor for increase the level of security and anonimity over the internet.}
+	\noindent See the following command :
+	\begin{lstlisting}[language=bash]
+$ torify ssh root@adm.segfault.net
+	\end{lstlisting}
+	{Now type the password:}
+	\textbf{segfault}
+	\newline 
+	{The server return you a result like this:}
+\raggedright
+	\begin{lstlisting}[language=bash]
+##################################################
+Thereafter use these commands:
+--> ssh  aroundwisdom
+--> sftp aroundwisdom
+--> scp  aroundwisdom:stuff.tar.gz ~/
+--> sshfs -o reconnect aroundwisdom:/sec ~/sec
+--------------------------------------------------
+Token             : No See https://thc.org/segfault/token
+Your workstation  : 200.101.113.232    (Sao Paulo/Brazil)
+Reverse Port      : Type curl sf/port for reverse port.
+Exit CryptoStorm  : 185.117.118.23  (Finland)
+Exit Mullvad      : 146.70.197.254  (Copenhagen/Denmark)
+Exit NordVPN      : 94.101.114.253  (Zurich/Switzerland)
+TOR Proxy         : 172.20.0.111:9050
+Shared storage    : /everyone/AroundWisdom     
+(encrypted)
+Your storage      : /sec                    
+(encrypted)
+Your Onion WWW    : /onion                 		
+(encrypted)
+Your Web Page
+http://2xyr7jug4.onion/aroundwisdom/
+SSH               : ssh -o "SetEnv SECRET=twbr" \
+root@adm.segfault.net
+SSH (TOR)         : torsocks ssh -o "SetEnv
+SECRET=twbr" \
+root@twbr.onion
+SSH (gsocket)     : gsocket -s NG ssh -o "SetEnv
+SECRET=twbr" \
+root@adm.segfault.gsocket
+	\end{lstlisting}
+	\emph{*All data listed above are fake and used for representation only.} 
+	\\
+	\newpage 
+	\centering
+	\section{[Anonymity]}
+	\raggedright
+	\textnormal{Segfault has two domains for access: \textbf{lsd.segfault.net} \emph{(Used for terminal)} and \textbf{adm.segfault.net} \emph{(Used on the website \href{https://shell.segfault.net}{ShellSegfault.})}}
+    \newline\newline 
+    \textnormal{Tor has many layers for protect user privacy online and Segfault has two domains but domain \textit{lsd.segfault} cant joint another session in \textit{lsd.segfault.net}. With many tests we achieved a sucessfull connection using \textit{adm.segfault.net} to \textit{lsd.segfault.net}; and the same using \textit{lsd.segfault.net} to \textit{adm.segfault.net}.
+    \newline\newline
+    We used:}
+    \newline 
+    \begin{lstlisting}[language=bash]
+        $ torify ssh root@adm.segfault.net
+    \end{lstlisting}
+    \textnormal{And when the connection are sucessfull we connect to another server using:}
+    \begin{lstlisting}[language=bash]
+        $ ssh root@lsd.segfault.net
+    \end{lstlisting} 
+	\textnormal{Some tor ip address are blocked because are used for illegal purposes, so all we can do are connecting first to the server adm.segfault using torify and no torify on the other connections.
+    \newline\newline
+	After the final test of efficiency we got some latency but we are navigating into 12 layers of tor connections; a high level of privacy and anonymity for research.}
+	
+	\begin{thebibliography}{9}
+	\bibitem{openssh}
+	\href{https://www.openssh.com/history.html}{OpenSSH History} \textnormal{on OpenBSD website;}\emph{visited 18/02/2024}.
+	\end{thebibliography}
+\end{document}
