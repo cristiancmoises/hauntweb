@@ -1,9 +1,6 @@
 html, body {
     font-size: 16px;
-    font-family: Mona Sans;
-    src:
-    url('Mona-Sans.woff2') format('woff2 supports variations'),
-    url('Mona-Sans.woff2') format('woff2-variations');
+    font-family: monaspace;
     font-weight: 200 900;
     font-stretch: 75% 125%;
     background: #000000;
