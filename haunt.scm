@@ -91,7 +91,7 @@
 (site #:title
       "C.C.M. Homepage"
       #:domain
-      "cristiancmoises.github.io"
+      "cristiancmoises.github.io/site/"
       #:default-metadata
       '((author . "Cristian Cezar Moisés"))
       #:readers
@@ -104,4 +104,5 @@
 	    not-found
 	    (static-directory "css")
             (static-directory "download")
-            (static-directory "images")))
+            (static-directory "images")
+            (static-directory "videos")))
