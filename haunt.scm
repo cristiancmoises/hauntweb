@@ -97,7 +97,8 @@
       #:readers
       (list commonmark-reader*)
       #:builders
-      (list (blog #:theme default-theme #:collections %projects)
+      (list 
+            (blog #:theme default-theme #:collections %projects)
             (blog #:theme default-theme #:collections %research)
             home-page
             about-page

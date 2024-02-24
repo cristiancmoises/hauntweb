@@ -106,10 +106,10 @@
   (link* "LinkedIn" "https://www.linkedin.com/in/cristiancezarmoises"))
 
 (define (orcid)
-  (link* "ORCID" "https://orcid.org/0000-0001-9533-4916"))
+  (link* "ResearchGate" "https://www.researchgate.net/profile/Cristian-Moises/research"))
 
 (define (arxiv)
-  (link* "ArXiv" "https://arxiv.org/search/?"))
+  (link* "TOR" "http://idtirp7vx6rcpxgkmm3t6ungbuq6wcsinjggfhmppuv2e2prux4gc6qd.onion/"))
 
 (define (ads)
   (link* "Youtube" "https://youtube.com/@securityops"))
