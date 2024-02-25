@@ -1,10 +1,4 @@
 html, body {
-    font-size: 16px;
-    font-family: truetype;
-    background: #000000;
-    color: #00FF66;
-    line-height: 1.25;
-}
 @font-face {
     font-family: truetype;
     src: url("../fonts/iosevka-term-thin.ttf") format('truetype');
