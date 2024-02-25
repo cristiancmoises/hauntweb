@@ -1,10 +1,11 @@
 html, body {
-@font-face {
+    font-size: 16px;
     font-family: truetype;
-    src: url("../fonts/iosevka-term-thin.ttf") format('truetype');
-    font-weight: normal;
-    font-style: normal;
+    background: #000000;
+    color: #00FF66;
+    line-height: 1.25;
 }
+
 a {
     color: #ACFFBD;
     text-decoration: none;
@@ -30,5 +31,5 @@ footer {
 
 #block {
     margin: auto;
-    max-width: 720px;
+    max-width: 640px;
 }
