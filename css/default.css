@@ -1,6 +1,7 @@
 html, body {
     font-size: 16px;
     font-family: monaspace;
+ src: url("../IosevkaThin.ttc") format('truetype');
     background: #000000;
     color: #00FF66;
     line-height: 1.25;
