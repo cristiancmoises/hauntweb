@@ -109,7 +109,7 @@
   (link* "ResearchGate" "https://www.researchgate.net/profile/Cristian-Moises/research"))
 
 (define (arxiv)
-  (link* "TOR" "http://idtirp7vx6rcpxgkmm3t6ungbuq6wcsinjggfhmppuv2e2prux4gc6qd.onion/"))
+  (link* "TOR" "http://secopscj53y6qltbysxt2bhnr2ohwzi6bh6wbxonycgc6tdemj4xkmyd.onion/"))
 
 (define (ads)
   (link* "Youtube" "https://youtube.com/@securityops"))

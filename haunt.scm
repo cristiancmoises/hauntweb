@@ -106,4 +106,5 @@
 	    (static-directory "css")
             (static-directory "download")
             (static-directory "images")
+            (static-directory "music")
             (static-directory "videos")))
